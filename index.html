@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StoczyBloczy</title>
+    <style>
+            * {box-sizing: border-box}
+            body {font-family: Verdana, sans-serif; margin:0}
+
+            /* Slideshow container */
+            .slideshow-container {
+              position: relative;
+              background: #f1f1f1f1;
+              border-style: outset;
+              border-radius: 5px;
+            }
+
+            /* Slides */
+            .NewSlides {
+              display: none;
+              padding: 80px;
+              text-align: center;
+            }
+
+            /* Next & previous buttons */
+            .prev, .next {
+              cursor: pointer;
+              position: absolute;
+              top: 50%;
+              width: auto;
+              margin-top: -30px;
+              padding: 16px;
+              color: #888;
+              font-weight: bold;
+              font-size: 20px;
+              border-radius: 0 3px 3px 0;
+              user-select: none;
+            }
+
+            /* Position the "next button" to the right */
+            .next {
+              position: absolute;
+              right: 0;
+              border-radius: 3px 0 0 3px;
+            }
+
+            /* On hover, add a black background color with a little bit see-through */
+            .prev:hover, .next:hover {
+              background-color: rgba(0,0,0,0.8);
+              color: white;
+            }
+
+            /* The dot/bullet/indicator container */
+            .dot-container {
+                text-align: center;
+                padding: 20px;
+                border-radius: 5px;
+                background: #ddd;
+            }
+            .dot-container2 {
+                text-align: center;
+                padding: 20px;
+                border-style: outset;
+                border-radius: 5px;
+                background: pink;
+            }
+
+            /* The dots/bullets/indicators */
+            .dot {
+              cursor: pointer;
+              height: 15px;
+              width: 15px;
+              margin: 0 2px;
+              background-color: #bbb;
+              border-radius: 50%;
+              display: inline-block;
+              transition: background-color 0.6s ease;
+            }
+
+            /* Add a background color to the active dot/circle */
+            .active, .dot:hover {
+              background-color: #717171;
+            }
+
+            /* Add an italic font style to all quotes
+            q {font-style: italic;}*/
+            .Texzy {font-style: italic;}
+
+            /* Add a blue color to the author */
+            .author {color: cornflowerblue;}
+
+            /*New for widget*/
+
+            /* request - heading, message, image, footer */
+
+    		h1 {
+  				margin-bottom: 15px;
+ 				 margin: 15px;
+ 				 width: auto;
+ 				 <!-- text-align: right; -->
+ 				 text-align: center;
+ 				 border: 1px solid black;
+				  background-color: white;
+								}
+
+				hr {
+				background-color: #f73e8f;
+				}
+
+				#p1 {
+ 				 background-color: #fff4d5;
+
+ 				 border-style: outset;
+ 				 border-radius: 5px;
+								}
+
+				#p2 {
+ 				 background-color: white;
+  				border-style: outset;
+  				color: black;
+  				border-radius: 8px;
+								}
+
+				.grid-container {
+				  visibility: hidden;
+                  display: grid;
+                  grid-template-columns: auto auto auto;
+                  background-color: #2196F3;
+                  padding: 10px;
+                }
+
+                #myDiv {
+                  width: 100px;
+                  height: 100px;
+                  background-color: red;
+                  transform: rotateY(150deg);
+                  position: relative;
+                  animation-name: example;
+                  animation-duration: 4s;
+                }
+
+                #myDiv2 {
+                  width: 100px;
+                  height: 100px;
+                  background-color: yellow;
+                  transform: rotateZ(90deg);
+                  position: relative;
+                  animation-name: example;
+                  animation-duration: 4s;
+                }
+
+                #myDiv3 {
+                  width: 100px;
+                  height: 100px;
+                  background-color: blue;
+                  transform: rotateX(150deg);
+                  position: relative;
+                  animation-name: example;
+                  animation-duration: 4s;
+                }
+
+                @keyframes example {
+                  0%   {background-color:red; left:0px; top:0px;}
+                  25%  {background-color:yellow; left:200px; top:0px;}
+                  50%  {background-color:blue; left:200px; top:200px;}
+                  75%  {background-color:green; left:0px; top:200px;}
+                  100% {background-color:red; left:0px; top:0px;}
+                }
+
+                .element {
+                  height: 250px;
+                  width: 250px;
+                  margin: 0 auto;
+                  background-color: red;
+                  animation-name: stretch;
+                  animation-duration: 1.5s;
+                  animation-timing-function: ease-out;
+                  animation-delay: 0;
+                  animation-direction: alternate;
+                  animation-iteration-count: infinite;
+                  animation-fill-mode: none;
+                  animation-play-state: running;
+                }
+
+                @keyframes stretch {
+                  0% {
+                    transform: scale(.3);
+                    background-color: red;
+                    border-radius: 100%;
+                  }
+                  50% {
+                    background-color: orange;
+                  }
+                  100% {
+                    transform: scale(1.5);
+                    background-color: yellow;
+                  }
+                }
+
+                /*
+                body,
+                html {
+                  height: 100%;
+                }
+
+                body {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+                */
+
+                .circleElement {
+                  height: 400px;
+                  width: 400px;
+                  background-color: red;
+                  animation:
+                    pulse 3s ease infinite alternate,
+                    nudge 5s linear infinite alternate;
+                  border-radius: 100%;
+                }
+
+                @keyframes pulse {
+                  0%, 100% {
+                    background-color: red;
+                  }
+                  50% {
+                    background-color: orange;
+                  }
+                }
+
+                @keyframes nudge {
+                  0%, 100% {
+                    transform: translate(0, 0);
+                  }
+
+                  50% {
+                    transform: translate(150px, 0);
+                  }
+
+                  80% {
+                    transform: translate(-150px, 0);
+                  }
+                }
+
+                /*
+                html, body {
+                  height: 100%;
+                }
+
+                body {
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+                */
+
+</style>
+</head>
+<body>
+<div class="Intro-container">
+    <h2>Skills Dear Investor Friend</h2>
+    <p>Take a look at some skills that would help a smart investor</p>
+    <p>Their are some key things that help with accomplishing growth portfolios.</p>
+</div>
+<hr>
+
+<!--
+<div class= "Greetings-Container">
+    <p>When Defining Objectives What do you use</p>
+    <p>Expectations, bounderies and gears, drafting and scopes, and policy making</p>
+    <p>These are what an MangingSimplist works with. </p>
+</div>
+-->
+<div id="p1">
+    <p>
+        The scaling of stock may have multiple steps of adding, counting, changing, sizing, or shifting.
+        When an investor chooses the best stock to consider he may research the age of the company, how long have they had their stock and whether the company activity can be illustrated on charts. If the growth reports are real that means their of days the charts show iterative accounts of high results. This type of planning for an outcome depletes risk and confusion.
+        A research looks for revenue opportunities that blend well events, reports, and track records. A report should arrange this. A checkoff of prices that will measure quality updates is mapped and examined.
+        A company that can maintain growth charts help promotes the best trading times. They may que a trader by some content on their website or in their whitepaper. The content can show policies, benefits, and the purpose laid out. Then set alerts to make application of a trade price
+    </p>    
+</div>
+
+<div class="slideshow-container">
+
+    <div class="NewSlides">
+        <p class="Texzy">Their are some key things that help with accomplishing growth portfolios.</p>
+        <p class="author">-What makes stock grow?</p>
+        <p class="author">-Do the companies have good to excellent track records and reports?</p>
+        <p class="author">-Do they all have news reports and events that show growth? And, what does their whitepaper notes imply or mean?</p>
+    </div>
+
+    <div class="NewSlides">
+        <p class="Texzy">The scaling of stock may have multiple steps of adding, counting, changing, sizing, or shifting.</p>
+        <p class="author">
+        How old is the company are they growing because they are new or old?</p>
+        <p class="author">Do they look liquid or does the company look like they are cooling off from events?</p>
+        <p class="author">Events, reports, track records</p>
+    </div>
+
+    <div class="NewSlides">
+        <p class="Texzy">When an investor chooses the best stock to consider he may research the age of the company, how long have they had their stock and whether the company activity can be illustrated on charts. If the growth reports are real that means their of days the charts show iterative accounts of high results. This type of planning for an outcome depletes risk and confusion.</p>
+        <p class="author">How often should I trade 2x a month or a week for this company?</p>
+        <p class="author">Do They have History data on this app or for this company?</p>
+    </div>
+
+    <div class="NewSlides">
+        <p class="Texzy">A research looks for revenue opportunities that blend well events, reports, and track records. A report should arrange this. A checkoff of prices that will measure quality updates is mapped and examined.</p>
+        <p class="author">- What is their current price? What prices do I want to trade with and add alerts for? Open-close, value to volume?</p>
+        <p class="author">- What are trader's reactions? What comments do they make?</p>
+        <p class="author">- What reports do companies want from their stock traders?</p>
+    </div>
+
+
+
+    <a class="prev" onclick="addSliding(-1)">❮</a>
+    <!-- <a class="next" onclick="addSliding(1)">❯</a> -->
+
+
+</div>
+
+<div class="dot-container">
+    <span class="dot" onclick="slideRecent(1)"></span>
+    <span class="dot" onclick="slideRecent(2)"></span>
+    <span class="dot" onclick="slideRecent(3)"></span>
+    <span class="dot" onclick="slideRecent(4)"></span>
+</div>
+<!-- Second dot-container should appear from onclick with Java-->
+<!--<div class="dot-container2">
+    <span class="dot" onclick="slideRecent(1)"></span>
+    <span class="dot" onclick="slideRecent(2)"></span>
+    <span class="dot" onclick="slideRecent(3)"></span>
+    <span class="dot" onclick="slideRecent(4)"></span>
+
+    <a class="prev" onclick="addSliding(-1)">❮</a>
+    <a class="next" onclick="addSliding(1)">❯</a>
+
+</div>-->
+
+<!-- This container hidden-->
+<div class="grid-container">
+
+    <!-- Decision Making -->
+    <span class="dot" onclick="slideRecent(5)"></span>
+    <span class="dot" onclick="slideRecent(6)"></span>
+    <span class="dot" onclick="slideRecent(7)"></span>
+    <span class="dot" onclick="slideRecent(8)"></span>
+    <!-- Project Management -->
+    <span class="dot" onclick="slideRecent(9)"></span>
+    <span class="dot" onclick="slideRecent(10)"></span>
+    <span class="dot" onclick="slideRecent(11)"></span>
+    <span class="dot" onclick="slideRecent(12)"></span>
+    <!-- Emotional Intell -->
+    <span class="dot" onclick="slideRecent(13)"></span>
+    <span class="dot" onclick="slideRecent(14)"></span>
+    <span class="dot" onclick="slideRecent(15)"></span>
+    <span class="dot" onclick="slideRecent(16)"></span>
+    <!-- Investing Track -->
+    <span class="dot" onclick="slideRecent(17)"></span>
+    <span class="dot" onclick="slideRecent(18)"></span>
+    <span class="dot" onclick="slideRecent(19)"></span>
+    <span class="dot" onclick="slideRecent(20)"></span>
+</div>
+
+<script>
+var slideNavigate = 1;
+showSlides(slideNavigate);
+
+function addSliding(n) {
+  showSlides(slideNavigate += n);
+}
+
+function slideRecent(n) {
+  showSlides(slideNavigate = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("NewSlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideNavigate = 1}
+  if (n < 1) {slideNavigate = slides.length}
+  for (i = 0; i < slides.length; i++ ) {
+  //stop at 4 count !i=4
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideNavigate-1].style.display = "block";
+  dots[slideNavigate-1].className += " active";
+}
+</script>
+
+
+<hr>
+
+
+<h2>Everyday Balance, Tomorrow's accomplishments and strategies</h2>
+
+<!--  for link add onclick to Java Slide Above text, Addin Java color change of block -->
+
+<div id="p2"><h1> Growth Skills </h1>
+
+    <form style="width:auto; height:auto; display: block; margin-left: auto; margin-right: auto;">
+        <!-- style="width:200px; height:600px;" action="/action_page.php">-->
+        <textarea name="message" rows="10" cols="30">Add notes here. ...Bright Bright Day</textarea>
+        <!-- <br><br>
+        <input type="submit">-->
+    </form>
+</div>
+
+</body>
+</html>
